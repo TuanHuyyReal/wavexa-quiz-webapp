@@ -1,0 +1,35 @@
+form {
+  font-family: "Roboto";
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  label {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+  }
+  select {
+    height: 3rem;
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    border-radius: 0.5rem;
+    border: 1px solid var(--contrast-co);
+  }
+
+  button[type="submit"] {
+    height: 2.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    background-color: var(--tertiary-color);
+    border-radius: 0.5rem;
+    border: 1px solid var(--contrast-color);
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+    }
+  }
+}
