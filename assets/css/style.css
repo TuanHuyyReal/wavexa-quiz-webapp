@@ -85,6 +85,8 @@ header {
 img.logo {
   width: calc(10% - 5vw);
   cursor: pointer;
+
+  min-width: 100px;
 }
 
 /* .logo svg {
@@ -126,6 +128,8 @@ nav a.active {
   border-radius: 0.5rem;
   padding: 1rem;
   text-transform: lowercase;
+
+  fill: #fff;
 }
 nav a.active {
   text-transform: uppercase;

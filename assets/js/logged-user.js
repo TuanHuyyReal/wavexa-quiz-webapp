@@ -1,6 +1,6 @@
-const user_info_display = document.querySelector("ul.nav-list.register");
+const user_info_display = document.querySelector(".dropdown-menu");
 const user_session = JSON.parse(localStorage.getItem("user_session")) || null;
-const userDisplayButton = document.querySelector("button.user-display");
+const userDisplayButton = document.querySelector(".dropdown-btn");
 
 user_info_display.classList.add("hidden");
 
@@ -9,12 +9,12 @@ if (user_session) {
   if (now < user_session.expiry) {
     // Hiển thị thông tin người dùng
     user_info_display.innerHTML = `
-            <li class="nav-item">
-                <span class="username">${user_session.user.providerData[0].email}</span>
-            </li>
-            <li class="nav-item">
-                <a href="./login.html" class="logout-link">Đăng xuất</a>
-            </li>
+            <a href="#!">
+                <span class="username">${user_session.user.providerData[0].uid}</span>
+            </a>
+
+                <a href="./login.html" class="logout-link">Logout</a>
+
         `;
     // Thêm sự kiện click cho đăng xuất
     document.querySelector("a.logout-link").addEventListener("click", () => {
@@ -23,12 +23,6 @@ if (user_session) {
       window.location.href = "./login.html";
     });
   }
-
-  //   add sự kiện click cho button user_display
-
-  userDisplayButton.addEventListener("click", () => {
-    user_info_display.classList.toggle("hidden");
-  });
 } else {
   userDisplayButton.innerHTML = `
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">

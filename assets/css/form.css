@@ -87,8 +87,8 @@ main {
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
-
     .input-field {
+      position: relative;
       width: 100%;
       display: flex;
       align-items: center;
@@ -123,7 +123,17 @@ main {
         }
       }
     }
+    i.bi.bi-chevron-down {
+      cursor: pointer;
 
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      color: var(--bright-text-prim);
+      text-shadow: 0 0 4px var(--shadow-prim), 0 0 6px var(--shadow-ter);
+    }
     button[type="submit"] {
       background: linear-gradient(
         90deg,

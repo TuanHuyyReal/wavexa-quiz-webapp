@@ -9,7 +9,7 @@ const userSession = JSON.parse(localStorage.getItem("user_session")) || null;
 
 if (userSession != null || userSession) {
   if (now < userSession?.expiry) {
-    window.location.href = "/index.html";
+    window.location.href = "./gallery.html";
   }
 }
 
@@ -21,7 +21,7 @@ function handleLogin(event) {
 
   // Kiểm tra các trường có trống không
   if (!email || !password) {
-    alert("Vui lòng điền đủ thông tin");
+    alert("Please fill in all fields.");
     return;
   }
 
@@ -31,12 +31,12 @@ function handleLogin(event) {
     .then((userCredential) => {
       // Signed in
       var user = userCredential.user;
-      alert("Đăng nhập thành công");
+      alert("Login successful");
 
       // Thiết lập phiên hoặc lưu thông tin đăng nhập
       // Tạo đối tượng user session
       const userSession = {
-        username: user.displayName,
+        username: user.providerData[0].uid,
         user: user,
         expiry: new Date().getTime() + 2 * 60 * 60 * 1000, // 2 tiếng
       };
@@ -50,7 +50,7 @@ function handleLogin(event) {
     .catch((error) => {
       var errorCode = error.code;
       var errorMessage = error.message;
-      alert("Mật khẩu không đúng");
+      alert("Incorrect password or email");
     });
 }
 

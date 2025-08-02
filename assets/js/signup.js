@@ -1,6 +1,6 @@
 import { db, auth } from "./firebase-config.js";
-const signupForm = document.querySelector(".reg-form.signup");
-const usn_input = document.querySelector("input[name='usn']");
+const signupForm = document.querySelector(".reg-form");
+const usn_input = document.querySelector("input[name='username']");
 const email_input = document.querySelector("input[name='email']");
 const password_input = document.querySelector("input[name='pw']");
 const cf_password_input = document.querySelector("input[name='cfpw']");
@@ -14,12 +14,12 @@ signupForm.addEventListener("submit", (e) => {
   const cf_password = cf_password_input.value.trim();
 
   if (!usn || !email || !password || !cf_password) {
-    alert("Vui lòng điền đầy đủ thông tin");
+    alert("Please fill in all fields.");
     return;
   }
 
   if (password !== cf_password) {
-    alert("Mật khẩu không khớp");
+    alert("Passwords do not match.");
     return;
   }
 
@@ -41,11 +41,11 @@ signupForm.addEventListener("submit", (e) => {
       db.collection("users")
         .add(userData)
         .then(() => {
-          alert("Đăng ký thành công");
-          window.location.href = "/login.html"; // Chuyển hướng đến trang đăng nhập sau khi đăng ký thành công
+          alert("Registration successful");
+          window.location.href = "/login.html"; // Redirect to login page after successful registration
         })
         .catch((error) => {
-          alert("Đăng ký thất bại");
+          alert("Registration failed: " + error.message);
           console.error("Error adding document: ", error);
         });
     })

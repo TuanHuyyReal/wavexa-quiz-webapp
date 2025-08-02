@@ -1,3 +1,9 @@
+import {
+  signInWithPopup,
+  GoogleAuthProvider,
+  browserPopupRedirectResolver,
+} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyBEvfO_opYWpdNo795UNFp943W-2vv1HHA",
   authDomain: "quiz-homework-68bfd.firebaseapp.com",
