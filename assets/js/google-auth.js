@@ -10,16 +10,9 @@ provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
 document.querySelector(".google-reg").addEventListener("click", () => {
   signInWithPopup(auth, provider, browserPopupRedirectResolver)
     .then((result) => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
-      // The signed-in user info.
       const user = result.user;
-      // IdP data available using getAdditionalUserInfo(result)
-      // ...
-      getAdditionalUserInfo(result).then((info) => {
-        console.log("User Info:", info);
-      });
 
       alert("Login successful with Google");
       // Tạo đối tượng user session
