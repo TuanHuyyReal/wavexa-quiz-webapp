@@ -5,7 +5,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
 import { auth } from "./firebase-config.js";
 const provider = new GoogleAuthProvider();
-provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
+provider.addScope("https://www.googleapis.com/auth/contacts");
 
 document.querySelector(".google-reg").addEventListener("click", () => {
   signInWithPopup(auth, provider, browserPopupRedirectResolver)
