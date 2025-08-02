@@ -114,11 +114,18 @@ nav a {
   transition: color 0.3s ease;
   cursor: pointer;
   text-transform: lowercase;
+
+  transition: all 0.3s linear;
 }
 nav a:hover,
 nav a.active {
-  color: var(--shadow-sec);
+  color: #fff;
   text-shadow: 0 0 4px var(--shadow-prim), 0 0 6px var(--shadow-ter);
+
+  background-color: var(--shadow-prim);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-transform: lowercase;
 }
 nav a.active {
   text-transform: uppercase;
