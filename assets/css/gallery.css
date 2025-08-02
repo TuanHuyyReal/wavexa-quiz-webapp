@@ -239,7 +239,7 @@ svg.waves {
   background: var(--bg-ter);
   border-radius: 50%;
   box-shadow: 14px 0 0 var(--bg-ter), 7px -7px 0 var(--bg-ter);
-  animation: floatDots 3s ease-in-out infinite;
+  animation: floatDots 3s linear infinite;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

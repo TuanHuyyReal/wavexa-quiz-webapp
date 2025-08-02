@@ -202,3 +202,21 @@ main {
     }
   }
 }
+
+/* RESPONSIVE */
+@media only screen and (max-width: 425px) {
+  .wrapper {
+    width: 100% !important;
+    height: max-content !important;
+
+    overflow: auto;
+
+    /* .text-title {
+      font-size: calc(2.5rem / (62.5 / 100));
+    } */
+  }
+
+  .bg-img {
+    display: none;
+  }
+}
