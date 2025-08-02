@@ -16,78 +16,166 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/animation.css" />
     <link rel="stylesheet" href="./assets/css/result.css" />
+    <link rel="stylesheet" href="./assets/css/loader.css" />
   </head>
 
   <body>
-    <header>
-      <!-- place navbar here -->
-    </header>
-    <main>
-      <h2>Quiz Completed!</h2>
-      <div class="summary">
-        <span class="score-text">Your score is: </span>
+    <!-- From Uiverse.io by anshi_8122 -->
+    <div class="loader">
+      <div class="loader-container">
+        <div class="jellyfish">
+          <div class="jellyfish-head"></div>
+          <div class="tentacles">
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+          </div>
+        </div>
 
-        <span class="category-text">Category: </span>
-        <span class="diff-text">Difficulty: </span>
+        <div class="bubbles">
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+        </div>
       </div>
-      <div class="btn-container">
+    </div>
+
+    <div class="page">
+      <header>
+        <!-- place navbar here -->
+        <img
+          src="./assets/images/logo.png"
+          alt=""
+          class="logo"
+          onclick="location.href=`./gallery.html`"
+        />
+        <nav role="navigation" aria-label="Menu điều hướng chính">
+          <a href="#!" id="random-quiz-a" class="active">result</a>
+          <a href="./gallery.html" id="menu-a" aria-current="page">menu</a>
+          <!-- <a href="#!" id="quiz-a">quiz</a> -->
+        </nav>
         <button
-          class="restart-quiz"
+          class="btn-copy dropdown-btn reg-btn"
           type="button"
-          onclick="window.location.href='./form.html'"
+          title="avatar reg-popup"
         >
-          Restart Quiz
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+            />
+          </svg>
         </button>
-        <button
-          class="view-leaderboard"
-          type="button"
-          onclick="document.querySelector('.leaderboard-container').classList.toggle('hidden')"
-        >
-          View Leaderboard
-        </button>
-      </div>
-      <form class="save-score login">
-        <span class="form-title">Save your score</span>
-        <input
-          type="text"
-          name="username-inp"
-          id="username-inp"
-          placeholder="Username"
-        />
-        <input
-          type="email"
-          name="email-inp"
-          id="email-inp"
-          placeholder="Email"
-        />
-        <button type="submit">Save Score</button>
-      </form>
-      <div class="leaderboard-container hidden">
-        <span
-          class="remove"
-          onclick="document.querySelector('.leaderboard-container').classList.add('hidden')"
-          >X</span
-        >
+        <div class="dropdown-menu" id="dropdown">
+          <a href="./login.html">Login</a>
+          <a href="./signup.html">Signup</a>
+        </div>
+      </header>
+      <main>
+        <div class="title-container">
+          <h2 class="title animation animate__animated">
+            You've completed this quiz <span class="correct-rating"></span>!
+          </h2>
+          <script>
+            // chuyển đổi animation
 
-        <h3 class="leaderboard-title">Leaderboard</h3>
-        <input
-          type="text"
-          name="search"
-          id="search-input"
-          class="search-input"
-          placeholder="Search"
-        />
+            const title = document.querySelector(".title");
 
-        <ul class="leaderboard-list"></ul>
-      </div>
-    </main>
-    <footer>
-      <!-- place footer here -->
-    </footer>
+            const summary_section = document.querySelector(
+              "section.summary-section"
+            );
+
+            setInterval(() => {
+              title.classList.toggle("animation");
+              title.classList.toggle("reverse-animation");
+            }, 5000);
+          </script>
+          <script>
+            const correctRating = document.querySelector(".correct-rating");
+            const score = parseInt(sessionStorage.getItem("final_score"));
+            if (score == 0) {
+              correctRating.innerHTML = "unluckily";
+            } else if (score > 0 && score < 100) {
+              correctRating.innerHTML = "your best";
+            } else if (score == 100) {
+              correctRating.innerHTML = "perfectly";
+            } else correctRating.innerHTML = "";
+          </script>
+
+          <a href="#summary-sect">See what I've done</a>
+        </div>
+
+        <section class="summary-section" id="summary-sect">
+          <div class="summary animate__animated animate__zoomInDown">
+            <span class="score-text">Your score is: </span>
+
+            <span class="category-text">Category: </span>
+            <span class="diff-text">Difficulty: </span>
+          </div>
+
+          <a href="./login.html">Save Score</a>
+          <div class="btn-container">
+            <button
+              class="restart-quiz"
+              type="button"
+              onclick="window.location.href='./form.html'"
+            >
+              Restart Quiz
+            </button>
+            <button
+              class="view-leaderboard"
+              type="button"
+              onclick="document.querySelector('.leaderboard-container').classList.toggle('hidden')"
+            >
+              View Leaderboard
+            </button>
+          </div>
+          <div class="leaderboard-container hidden">
+            <span
+              class="remove"
+              onclick="document.querySelector('.leaderboard-container').classList.add('hidden')"
+              >X</span
+            >
+
+            <h3 class="leaderboard-title">Leaderboard</h3>
+            <input
+              type="text"
+              name="search"
+              id="search-input"
+              class="search-input"
+              placeholder="Search"
+            />
+
+            <ul class="leaderboard-list"></ul>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <!-- place footer here -->
+      </footer>
+    </div>
+
     <!-- Bootstrap JavaScript Libraries -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -115,5 +203,10 @@
 
     <script src="./assets/js/firebase-config.js" type="module"></script>
     <script src="./assets/js/result.js" type="module"></script>
+
+    <script type="module" src="./assets/js/logged-user.js"></script>
+
+    <script src="./assets/js/loader.js"></script>
+    <script src="./assets/js/page.js"></script>
   </body>
 </html>

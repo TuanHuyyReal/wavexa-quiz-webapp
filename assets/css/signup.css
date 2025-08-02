@@ -1,0 +1,19 @@
+main {
+  .wrapper {
+    left: auto;
+    right: 0;
+  }
+  .bg-img {
+    right: auto;
+    left: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    a {
+      right: auto;
+      left: 2rem;
+    }
+  }
+}

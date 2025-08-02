@@ -1,0 +1,325 @@
+html {
+  font-size: 62.5% !important;
+}
+.hidden {
+  display: none !important;
+}
+
+/* Container for entire page */
+
+/* Header with nav */
+
+/* Wave Container */
+.waves-container {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.menu-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.menu-button {
+  background-color: var(--btn-bg); /* Màu nền cho button */
+  border: none;
+  border-radius: 50%; /* Tạo hình tròn */
+  width: 50px;
+  height: 50px;
+  color: white;
+  font-size: calc(2.4rem / (62.5 / 100));
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.menu-button:hover {
+  background-color: #1a8aac; /* Màu khi hover */
+}
+
+.dropdown-menu {
+  display: none; /* Ẩn menu theo mặc định */
+  position: absolute;
+  top: 100%; /* Độ cao từ button */
+  right: 1rem;
+  background-color: rgba(28, 42, 65, 0.788);
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  z-index: 1000;
+  padding: 1rem !important;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.dropdown-menu a {
+  position: relative;
+  width: 90% !important;
+  display: block;
+  padding: 1rem;
+  font-size: 1.2rem;
+  color: var(--btn-bg);
+  text-decoration: none;
+  transition: all 0.3s linear;
+
+  &::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: var(--btn-bg);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+.take-quiz {
+  margin-top: 1rem;
+  cursor: pointer;
+  font-family: "Road Rage" !important;
+  button {
+    letter-spacing: 3px !important;
+    background: linear-gradient(
+      90deg,
+      var(--shadow-sec) 0%,
+      var(--bg-ter) 100%
+    );
+    border: none;
+    border-radius: 24px;
+    padding: calc(0.8rem / (62.5 / 100)) calc(1.5rem / (62.5 / 100));
+    box-shadow: 0 0 4px var(--shadow-prim), 0 0 6px var(--shadow-ter);
+    font-weight: 400;
+    font-size: 2.5rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    &:hover {
+      color: linear-gradient(90deg, var(--shadow-sec) 0%, var(--bg-ter) 100%);
+      background: #04102f;
+      text-shadow: 0 0 4px var(--shadow-prim), 0 0 6px var(--shadow-ter);
+    }
+  }
+}
+
+/* Wave SVG with wave shapes and animations */
+svg.waves {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 50vh;
+  pointer-events: none;
+  fill: none;
+  z-index: 1;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Multiple wave paths for layered effect */
+.wave1 {
+  fill: var(--shadow-sec);
+  animation: waveMove 8s ease-in-out infinite;
+  animation-delay: 0s;
+  opacity: 0.6;
+  filter: drop-shadow(0 0 1px var(--wave-prim));
+}
+
+.wave2 {
+  fill: var(--shadow-ter);
+  animation: waveMove 10s ease-in-out infinite;
+  animation-delay: -2s;
+  opacity: 0.5;
+  filter: drop-shadow(0 0 4px var(--shadow-prim));
+}
+
+.wave3 {
+  fill: var(--wave-qua);
+  animation: waveMove 12s ease-in-out infinite;
+  animation-delay: -4s;
+  opacity: 0.4;
+  filter: drop-shadow(0 0 5px var(--wave-ter));
+}
+
+@keyframes waveMove {
+  0%,
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(25px) translateY(-7px);
+  }
+}
+
+/* Central Text container */
+.text-center {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: var(--bright-text-prim);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.text-center .small-title {
+  font-family: "DotGothic16", monospace;
+  font-size: calc(2.2rem / (62.5 / 100));
+  font-weight: 700;
+  color: var(--shadow-prim);
+  letter-spacing: 0.15em;
+  margin-bottom: calc(0.2rem / (62.5 / 100));
+  text-transform: lowercase;
+  text-shadow: 0 0 4px var(--shadow-prim), 0 0 6px var(--shadow-ter);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.text-center .main-title {
+  font-size: calc(6.5rem / (62.5 / 100));
+  font-weight: 900;
+  color: white;
+  text-transform: lowercase;
+  letter-spacing: 0.012em;
+  filter: drop-shadow(0 0 20px var(--shadow-sec));
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1;
+}
+
+.text-center .subtitle {
+  margin-top: 0.3rem;
+  color: var(--shadow-prim);
+  font-family: "DotGothic16", monospace;
+  font-size: 1.2rem;
+  letter-spacing: 0.17em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Small wave-like "birds" as dots near text */
+.text-center .dots {
+  position: relative;
+  display: inline-block;
+  margin: 0 0.5rem;
+  width: 6px;
+  height: 6px;
+  background: var(--bg-ter);
+  border-radius: 50%;
+  box-shadow: 14px 0 0 var(--bg-ter), 7px -7px 0 var(--bg-ter);
+  animation: floatDots 3s ease-in-out infinite;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@keyframes floatDots {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Footer with small icons - using inline SVG */
+footer {
+  position: relative;
+  padding: calc(1rem / (62.5 / 100)) calc(2rem / (62.5 / 100));
+  text-align: center;
+  font-size: calc(0.8rem / (62.5 / 100));
+  color: var(--shadow-prim);
+  font-family: "DotGothic16", monospace;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 10;
+}
+
+footer .icons {
+  margin-bottom: 0.6rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.7rem;
+  filter: drop-shadow(0 0 2px var(--bg-ter) aa);
+}
+
+footer .icon svg {
+  fill: var(--shadow-prim);
+  width: 20px;
+  height: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: fill 0.2s ease;
+  cursor: pointer;
+}
+
+footer .icon svg:hover {
+  fill: var(--shadow-sec);
+  filter: drop-shadow(0 0 3px var(--shadow-sec) cc);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .text-center .small-title {
+    font-size: calc(1.8rem / (62.5 / 100));
+  }
+  .text-center .main-title {
+    font-size: calc(4rem / (62.5 / 100));
+  }
+  .text-center .subtitle {
+    font-size: calc(1rem / (62.5 / 100));
+  }
+  nav {
+    gap: 1rem;
+    font-size: calc(0.85rem / (62.5 / 100));
+  }
+  header {
+    padding: 1rem;
+  }
+  footer {
+    font-size: calc(0.7rem / (62.5 / 100));
+    padding: 0.75rem 1rem;
+  }
+  .btn-copy {
+    padding: 0.4rem 1.1rem;
+    font-size: calc(0.85rem / (62.5 / 100));
+  }
+}

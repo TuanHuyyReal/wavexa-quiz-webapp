@@ -1,35 +1,158 @@
-form {
-  font-family: "Roboto";
+.page {
+  overflow-y: auto;
+  height: max-content;
+}
+
+.title-container {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  margin-right: auto;
+  justify-content: center;
+  gap: 2rem;
+  width: max-content;
+  height: 92vh;
+  /* center */
+  position: relative;
   margin-left: auto;
-  label {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-  }
-  select {
-    height: 3rem;
-    font-size: 1.2rem;
-    color: var(--secondary-color);
-    border-radius: 0.5rem;
-    border: 1px solid var(--contrast-co);
+  margin-right: auto;
+
+  h1 {
+    /* font */
+    font: 700 2.5rem "DotGothic16" !important;
+    letter-spacing: 0.15em;
+    text-transform: lowercase;
+    text-shadow: 0 0 4px var(--shadow-prim), 0 0 6px var(--shadow-ter);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    overflow: hidden;
+    border-right: 0.15em solid var(--shadow-prim);
+    white-space: nowrap;
+    width: 0;
   }
 
-  button[type="submit"] {
-    height: 2.5rem;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    background-color: var(--tertiary-color);
-    border-radius: 0.5rem;
-    border: 1px solid var(--contrast-color);
-    transition: all 0.2s ease-in-out;
+  h1.reverse-animation {
+    animation: typewriter-rev 1s steps(18, end) forwards,
+      border-blink 1.2s infinite;
+  }
+  h1.animation {
+    animation: typewriter 1s steps(18, end) forwards, border-blink 1.2s infinite;
+  }
+
+  a.to-form {
+    background: linear-gradient(
+      90deg,
+      var(--shadow-sec) 0%,
+      var(--bg-ter) 100%
+    );
+    border: none;
+    border-radius: 24px;
+    padding: calc(0.5rem / (62.5 / 100)) calc(1rem / (62.5 / 100));
+    /* font-weight: 600; */
+    font-size: 2.5rem;
+    color: white;
+    cursor: pointer;
+    font-family: "Road Rage", monospace;
+    transition: background 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+
     &:hover {
-      background-color: var(--secondary-color);
-      color: var(--primary-color);
+      background: linear-gradient(
+        90deg,
+        var(--bg-ter) 0%,
+        var(--shadow-sec) 100%
+      );
+      transform: scale(1.05);
+    }
+  }
+}
+
+svg.waves {
+  position: fixed;
+}
+
+main {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh !important;
+  width: 100vw;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+
+    .input-field {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      label {
+        font: 700 1.5rem "DotGothic16" !important;
+        letter-spacing: 0.15em;
+        text-transform: lowercase;
+        text-shadow: 0 0 4px var(--shadow-prim), 0 0 6px var(--shadow-ter);
+        color: var(--btn-bg);
+        width: 50%;
+        padding: 0.1em;
+      }
+
+      select {
+        all: unset;
+
+        width: 50%;
+        height: 2.5rem;
+        border-radius: 4px;
+        flex: 1;
+
+        font: 700 1.5rem "Space Grotesk" !important;
+        color: var(--bright-text-prim);
+        text-shadow: 0 0 4px var(--shadow-sec), 0 0 6px var(--shadow-ter);
+        padding: 0.15em;
+        letter-spacing: 0.15em;
+        text-transform: lowercase;
+
+        option {
+          background: var(--bg-prim);
+          color: var(--bright-text-prim);
+        }
+      }
+    }
+
+    button[type="submit"] {
+      background: linear-gradient(
+        90deg,
+        var(--shadow-sec) 0%,
+        var(--bg-ter) 100%
+      );
+      border: none;
+      border-radius: 24px;
+      padding: calc(0.5rem / (62.5 / 100)) calc(1rem / (62.5 / 100));
+      font-size: 2.5rem;
+
+      color: white;
+      cursor: pointer;
+      font-family: "Road Rage", monospace;
+      transition: all 0.3s ease;
+      text-align: center;
+      text-decoration: none;
+
+      &:hover {
+        background: linear-gradient(
+          90deg,
+          var(--bg-prim) 0%,
+          var(--bg-sec) 100%
+        );
+        box-shadow: 0 0 4px var(--shadow-sec), 0 0 6px var(--shadow-ter);
+        text-shadow: 0 0 4px var(--shadow-prim), 0 0 6px var(--shadow-ter);
+
+        letter-spacing: 0.25em;
+      }
     }
   }
 }

@@ -1,0 +1,38 @@
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+  }
+  80% {
+    transform: translateX(-10%);
+  }
+  100% {
+    transfrom: translateX(0);
+  }
+}
+/* typewriter animation */
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes typewriter-rev {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
+@keyframes border-blink {
+  0%,
+  100% {
+    border-right: 0.15em solid var(--bg-prim);
+  }
+  50% {
+    border-right: 0.15em solid var(--shadow-prim);
+  }
+}

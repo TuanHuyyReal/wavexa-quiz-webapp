@@ -37,7 +37,6 @@ const category =
 const difficulty = JSON.parse(sessionStorage.getItem("quiz_data")).difficulty;
 
 renderScoreAndInfos(finalScore, category, difficulty);
-
 const renderLeaderboard = (leaderboard) => {
   const leaderboardElement = document.querySelector("ul.leaderboard-list");
   leaderboardElement.innerHTML = ""; // Clear previous leaderboard
@@ -88,27 +87,27 @@ const saveUserScore = (username, email, score) => {
     });
 };
 
-const saveScoreForm = document.querySelector(".save-score");
-saveScoreForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const usernameInput = document.querySelector("#username-inp");
-  const emailInput = document.querySelector("#email-inp");
+// const saveScoreForm = document.querySelector(".save-score");
+// saveScoreForm.addEventListener("submit", (event) => {
+//   event.preventDefault();
+//   const usernameInput = document.querySelector("#username-inp");
+//   const emailInput = document.querySelector("#email-inp");
 
-  const username = usernameInput.value.trim();
-  const email = emailInput.value.trim();
+//   const username = usernameInput.value.trim();
+//   const email = emailInput.value.trim();
 
-  if (username && email) {
-    saveUserScore(username, email, finalScore);
-    alert("Your score has been saved successfully!");
-    // Clear the input fields after saving
-    usernameInput.value = "";
-    emailInput.value = "";
+//   if (username && email) {
+//     saveUserScore(username, email, finalScore);
+//     alert("Your score has been saved successfully!");
+//     // Clear the input fields after saving
+//     usernameInput.value = "";
+//     emailInput.value = "";
 
-    document.querySelector(".restart-quiz").textContent = "Try new quizzes!";
-  } else {
-    alert("Please enter both username and email.");
-  }
-});
+//     document.querySelector(".restart-quiz").textContent = "Try new quizzes!";
+//   } else {
+//     alert("Please enter both username and email.");
+//   }
+// });
 fetchLeaderboard();
 
 // searching for user's score from database

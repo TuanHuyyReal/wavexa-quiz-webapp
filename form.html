@@ -19,60 +19,165 @@
 
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/animation.css" />
     <link rel="stylesheet" href="./assets/css/form.css" />
+    <link rel="stylesheet" href="./assets/css/loader.css" />
   </head>
 
   <body>
-    <header>
-      <!-- place navbar here -->
-    </header>
-    <main>
-      <h1 class="title">Let's get started</h1>
-      <form class="form quiz-form quiz-info">
-        <!-- category -->
-        <label for="category-inp">Select Category: </label>
-        <br />
-        <select name="category-inp" id="category-inp" title="category-select">
-          <option value="9">General Knowledge</option>
-          <option value="10">Entertainment: Books</option>
-          <option value="11">Entertainment: Film</option>
-          <option value="12">Entertainment: Music</option>
-          <option value="13">Entertainment: Musicals & Theatres</option>
-          <option value="14">Entertainment: Television</option>
-          <option value="15">Entertainment: Video Games</option>
-          <option value="16">Entertainment: Board Games</option>
-          <option value="17">Science & Nature</option>
-          <option value="18">Science: Computers</option>
-          <option value="19">Science: Mathematics</option>
-          <option value="20">Mythology</option>
-          <option value="21">Sports</option>
-          <option value="22">Geography</option>
-          <option value="23">History</option>
-          <option value="24">Politics</option>
-          <option value="25">Art</option>
-          <option value="26">Celebrities</option>
-          <option value="27">Animals</option>
-        </select>
-        <br />
-        <!-- difficulty -->
-        <label for="difficulty-inp">Select Difficulty: </label>
-        <br />
-        <select
-          name="difficulty-inp"
-          id="difficulty-inp"
-          title="difficulty-select"
+    <!-- From Uiverse.io by anshi_8122 -->
+    <div class="loader">
+      <div class="loader-container">
+        <div class="jellyfish">
+          <div class="jellyfish-head"></div>
+          <div class="tentacles">
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+          </div>
+        </div>
+
+        <div class="bubbles">
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page">
+      <header>
+        <!-- place navbar here -->
+        <img
+          src="./assets/images/logo.png"
+          alt=""
+          class="logo"
+          onclick="location.href=`./gallery.html`"
+        />
+        <nav role="navigation" aria-label="Menu điều hướng chính">
+          <a href="./form.html" id="random-quiz-a" class="active"
+            >random quiz</a
+          >
+          <a href="./gallery.html" id="menu-a" aria-current="page">menu</a>
+          <!-- <a href="#!" id="quiz-a">quiz</a> -->
+        </nav>
+        <button
+          class="btn-copy dropdown-btn reg-btn"
+          type="button"
+          title="avatar reg-popup"
         >
-          <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
-          <option value="hard">Hard</option>
-        </select>
-        <br />
-        <button type="submit" value="Submit">Submit</button>
-      </form>
-    </main>
-    <footer>
-      <!-- place footer here -->
-    </footer>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+            />
+          </svg>
+        </button>
+        <div class="dropdown-menu" id="dropdown">
+          <a href="./login.html">Login</a>
+          <a href="./signup.html">Signup</a>
+        </div>
+      </header>
+      <div class="title-container">
+        <h1 class="title animation">Let's get started</h1>
+        <a href="#quiz-form" class="to-form">Get your quizzes</a>
+        <script>
+          // chuyển đổi animation
+
+          const title = document.querySelector(".title");
+          setInterval(() => {
+            title.classList.toggle("animation");
+            title.classList.toggle("reverse-animation");
+          }, 5000);
+        </script>
+
+        <div class="waves-container">
+          <svg
+            class="waves"
+            viewBox="0 0 1440 320"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              class="wave1"
+              d="M0,160 C160,200 320,120 480,140 C640,160 800,100 960,140 C1120,180 1280,140 1440,160 L1440 320 L0 320 Z"
+            ></path>
+            <path
+              class="wave2"
+              d="M0,180 C180,140 360,220 540,180 C720,140 900,220 1080,180 C1260,140 1440,200 1620,160 L1620 320 L0 320 Z"
+            ></path>
+            <path
+              class="wave3"
+              d="M0,200 C200,160 400,260 600,200 C800,160 1000,260 1200,200 C1400,160 1600,220 1800,180 L1800 320 L0 320 Z"
+            ></path>
+          </svg>
+        </div>
+      </div>
+      <main>
+        <form class="form quiz-form quiz-info" id="quiz-form">
+          <!-- category -->
+          <div class="input-field">
+            <label for="category-inp">Select Category: </label>
+            <select
+              name="category-inp"
+              id="category-inp"
+              title="category-select"
+            >
+              <option value="9">General Knowledge</option>
+              <option value="10">Entertainment: Books</option>
+              <option value="11">Entertainment: Film</option>
+              <option value="12">Entertainment: Music</option>
+              <option value="13">Entertainment: Musicals & Theatres</option>
+              <option value="14">Entertainment: Television</option>
+              <option value="15">Entertainment: Video Games</option>
+              <option value="16">Entertainment: Board Games</option>
+              <option value="17">Science & Nature</option>
+              <option value="18">Science: Computers</option>
+              <option value="19">Science: Mathematics</option>
+              <option value="20">Mythology</option>
+              <option value="21">Sports</option>
+              <option value="22">Geography</option>
+              <option value="23">History</option>
+              <option value="24">Politics</option>
+              <option value="25">Art</option>
+              <option value="26">Celebrities</option>
+              <option value="27">Animals</option>
+            </select>
+          </div>
+          <!-- difficulty -->
+          <div class="input-field">
+            <label for="difficulty-inp">Select Difficulty: </label>
+            <select
+              name="difficulty-inp"
+              id="difficulty-inp"
+              title="difficulty-select"
+            >
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+          </div>
+          <button type="submit" value="Submit">Take my quiz now</button>
+        </form>
+      </main>
+      <footer>
+        <!-- place footer here -->
+      </footer>
+    </div>
     <!-- Bootstrap JavaScript Libraries -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -100,5 +205,9 @@
 
     <script src="./assets/js/firebase-config.js" type="module"></script>
     <script src="./assets/js/form.js" type="module"></script>
+
+    <!-- <script type="module" src="./assets/js/logged-user.js"></script> -->
+    <script src="./assets/js/page.js"></script>
+    <script src="./assets/js/loader.js"></script>
   </body>
 </html>

@@ -75,6 +75,15 @@ async function handleApiResponse(category, difficulty) {
               });
             });
           };
+
+          function renderQuestionIndex(q_index) {
+            const questionIndexElement =
+              document.querySelector(".question-index");
+            questionIndexElement.textContent = `Question ${q_index + 1} of ${
+              questions.length
+            }`;
+          }
+
           let questionIndex = 0;
           const questions = question_data.results;
           console.log(questions);
@@ -85,6 +94,8 @@ async function handleApiResponse(category, difficulty) {
             if (questionIndex < questions.length) {
               displayNewQuestion(questions[questionIndex]);
               questionIndex++;
+
+              renderQuestionIndex(questionIndex - 1);
               isAnswering = true; // Allow answering for the next question
             } else {
               setTimeout(() => {
