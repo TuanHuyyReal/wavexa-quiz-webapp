@@ -20,6 +20,17 @@ document.querySelector(".google-reg").addEventListener("click", () => {
       getAdditionalUserInfo(result).then((info) => {
         console.log("User Info:", info);
       });
+
+      alert("Login successful with Google");
+      // Tạo đối tượng user session
+      const userSession = {
+        username: user.providerData[0].uid,
+        user: user,
+        expiry: new Date().getTime() + 2 * 60 * 60 * 1000, // 2 tiếng
+      };
+      // Lưu vào localStorage
+      localStorage.setItem("user_session", JSON.stringify(userSession));
+      window.location.href = "./gallery.html";
     })
     .catch((error) => {
       // Handle Errors here.
