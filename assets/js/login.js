@@ -54,7 +54,7 @@ function handleLogin(event) {
     .catch((error) => {
       var errorCode = error.code;
       var errorMessage = error.message;
-      alert("Incorrect password or email");
+      alert(`Login failed: ${errorMessage}`);
     });
 }
 
