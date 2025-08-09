@@ -36,6 +36,14 @@ const category =
   categories[JSON.parse(sessionStorage.getItem("quiz_data")).category - 9];
 const difficulty = JSON.parse(sessionStorage.getItem("quiz_data")).difficulty;
 
+const scoreData = {
+  score: finalScore,
+  category: category,
+  difficulty: difficulty,
+};
+
+localStorage.setItem("scoreData", JSON.stringify(scoreData));
+
 renderScoreAndInfos(finalScore, category, difficulty);
 const renderLeaderboard = (leaderboard) => {
   const leaderboardElement = document.querySelector("ul.leaderboard-list");
@@ -66,14 +74,13 @@ const fetchLeaderboard = () => {
       console.error("Error fetching leaderboard:", error);
     });
 };
-const saveUserScore = (username, email, score) => {
+const saveUserScore = (email, scoreData) => {
   const userScore = {
-    username: username,
-    email: email,
-    score: score,
+    username: email,
+    score: scoreData.score,
     timestamp: new Date().toISOString(),
-    categories: category,
-    difficulty: difficulty,
+    categories: scoreData.category,
+    difficulty: scoreData.difficulty,
   };
 
   db.collection("leaderboard")
@@ -85,7 +92,29 @@ const saveUserScore = (username, email, score) => {
     .catch((error) => {
       console.error("Error saving user score:", error);
     });
+
+  // Clear the score data from localStorage after saving
+  localStorage.removeItem("scoreData");
 };
+
+const saveScoreBtn = document.querySelector("button.save-score");
+
+saveScoreBtn.addEventListener("click", () => {
+  const user_session = JSON.parse(localStorage.getItem("user_session")) || null;
+  const scoreData = JSON.parse(localStorage.getItem("scoreData")) || null;
+  if (user_session && scoreData) {
+    const userData = {
+      username: user_session.user.providerData[0].uid,
+      scoreData: scoreData,
+    };
+
+    saveUserScore(userData.username, userData.scoreData);
+    alert("Your score has been saved successfully!");
+  } else {
+    location.href = "./login.html";
+    alert("Please log in to save your score.");
+  }
+});
 
 // const saveScoreForm = document.querySelector(".save-score");
 // saveScoreForm.addEventListener("submit", (event) => {

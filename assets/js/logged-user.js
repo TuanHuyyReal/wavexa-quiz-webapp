@@ -12,8 +12,7 @@ if (user_session) {
             <a href="#!">
                 <span class="username">${user_session.user.providerData[0].uid}</span>
             </a>
-
-                <a href="./login.html" class="logout-link">Logout</a>
+            <a href="./login.html" class="logout-link">Logout</a>
 
         `;
     // Thêm sự kiện click cho đăng xuất
