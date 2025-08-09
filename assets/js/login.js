@@ -45,7 +45,7 @@ function handleLogin(event) {
       localStorage.setItem("user_session", JSON.stringify(userSession));
 
       // Chuyển hướng tới trang chủ
-      if (!scoreData) {
+      if (!localStorage.getItem("scoreData")) {
         window.location.href = "./gallery.html";
       } else {
         window.location.href = "./result.html";
