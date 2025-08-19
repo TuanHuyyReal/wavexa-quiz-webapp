@@ -67,7 +67,6 @@ main {
 
     ul.answers-list {
       display: flex;
-      align-items: center;
       gap: 2rem;
 
       width: 100%;
@@ -75,12 +74,13 @@ main {
 
       bottom: 2rem;
       width: 90%;
-      height: max-content;
+      height: 15vh;
       li {
         height: 100% !important;
         color: #fff;
         padding: 5rem 2.45rem;
         width: 25%;
+        height: 100%;
         text-align: center;
         font-size: calc(1.4rem + 20%);
         background: linear-gradient(
@@ -102,6 +102,12 @@ main {
             var(--bg-ter)
           );
         }
+      }
+      .correct {
+        background: linear-gradient(90deg, #34c759 0%, #2e865f 100%) !important;
+      }
+      .incorrect {
+        background: linear-gradient(90deg, #ff0000 0%, #8d5252 100%) !important;
       }
     }
   }

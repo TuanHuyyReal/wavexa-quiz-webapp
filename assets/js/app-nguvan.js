@@ -44,13 +44,19 @@ async function handleApiResponse(category_id, difficulty) {
                 if (option === correctAnswer) {
                   score += 10; // Increment score for correct answer
                   scoreElement.textContent = `Score: ${score}`;
-                  nextQuestion();
+                  optionElement.classList.add("correct");
+                  setTimeout(() => {
+                    nextQuestion();
+                  }, 4000);
                 } else {
                   // Minus the score by 5
                   score = score > 5 ? score - 5 : 0; // Ensure score doesn't go below 0
                   // Update the score display
                   scoreElement.textContent = `Score: ${score}`;
-                  nextQuestion();
+                  optionElement.classList.add("incorrect");
+                  setTimeout(() => {
+                    nextQuestion();
+                  }, 4000);
                 }
               });
             });
