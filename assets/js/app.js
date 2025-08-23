@@ -38,6 +38,10 @@ async function handleApiResponse(category, difficulty) {
             const categoryText = document.querySelector(".category-text");
             const optionsContainer = document.querySelector(".answers-list");
             const scoreElement = document.querySelector(".score");
+            const soundEffect = document.querySelector(".sound-effect");
+            const cover = document.querySelector("div.cover");
+
+            soundEffect.volume = 1;
 
             scoreElement.textContent = `Score: ${score}`;
 
@@ -59,18 +63,40 @@ async function handleApiResponse(category, difficulty) {
               optionsContainer.appendChild(optionElement);
 
               const correctAnswer = question.correct_answer;
+
+              let isChangingTheQuestion = false;
+
               // Add click event listener to each option
+
               optionElement.addEventListener("click", () => {
+                isChangingTheQuestion = true;
+                console.log(isChangingTheQuestion);
                 if (option === correctAnswer) {
                   score += 10; // Increment score for correct answer
                   scoreElement.textContent = `Score: ${score}`;
-                  nextQuestion();
+                  optionElement.classList.add("correct");
+
+                  soundEffect.src = "./assets/audio/answer-correct.mp3";
+                  soundEffect.play();
+
+                  cover.style.display = "block";
+
+                  setTimeout(() => {
+                    nextQuestion();
+                  }, 4000);
                 } else {
                   // Minus the score by 5
                   score = score > 5 ? score - 5 : 0; // Ensure score doesn't go below 0
                   // Update the score display
                   scoreElement.textContent = `Score: ${score}`;
-                  nextQuestion();
+                  optionElement.classList.add("incorrect");
+                  soundEffect.src = "./assets/audio/answer-wrong.mp3";
+                  soundEffect.play();
+
+                  cover.style.display = "block";
+                  setTimeout(() => {
+                    nextQuestion();
+                  }, 4000);
                 }
               });
             });
@@ -97,6 +123,8 @@ async function handleApiResponse(category, difficulty) {
 
               renderQuestionIndex(questionIndex - 1);
               isAnswering = true; // Allow answering for the next question
+              const cover = document.querySelector("div.cover");
+              cover.style.display = "none";
             } else {
               setTimeout(() => {
                 const finalScore = score;

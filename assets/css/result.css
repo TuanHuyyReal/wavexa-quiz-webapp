@@ -76,6 +76,7 @@ main {
     flex-direction: column;
     justify-content: center;
     gap: 2rem;
+
     width: 30vw;
     height: 100vh;
     /* center */
@@ -181,7 +182,7 @@ main {
       transform: translate(-50%, -50%);
 
       width: 40vw;
-      height: 50vh;
+      height: calc(max-content + 10vh);
       color: #fff;
       border-radius: 1rem;
       padding: 2rem 4.5rem;

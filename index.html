@@ -25,9 +25,22 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/quiz.css" />
     <link rel="stylesheet" href="assets/css/loader.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
   </head>
 
   <body>
+    <audio src="" class="sound-effect"></audio>
+    <audio
+      src="./assets/audio/quiz-background.mp3"
+      class="bg-track"
+      title="Song: Sam Day - GO ₊˚✩⋆｡° [NCS Release]
+Music provided by NoCopyrightSounds
+Free Download/Stream: http://ncs.io/SD\_GO
+Watch: http://ncs.lnk.toAT/youtube"
+      autoplay
+      loop
+    ></audio>
+    <div class="cover"></div>
     <!-- From Uiverse.io by anshi_8122 -->
     <div class="loader">
       <div class="loader-container">
@@ -91,7 +104,7 @@
           <a href="./signup.html">Signup</a>
         </div>
       </header>
-      <main>
+      <main class="quiz-container">
         <div class="container">
           <span class="question-index">Question</span>
           <span class="score"></span>

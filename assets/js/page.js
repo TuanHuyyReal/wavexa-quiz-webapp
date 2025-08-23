@@ -6,3 +6,7 @@ document
   .addEventListener("click", function () {
     dropdown.classList.toggle("hidden");
   });
+
+const audio = document.querySelector("audio.bg-track");
+audio.volume = 0.4;
+audio.play();

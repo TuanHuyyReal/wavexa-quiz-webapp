@@ -1,0 +1,398 @@
+/* Consolidated responsive styles for all pages/components */
+
+/* ========== Large tablets / small desktops ========== */
+@media (max-width: 1200px) {
+  /* style.css */
+  header {
+    padding: 1rem 1.25rem;
+  }
+  img.logo {
+    max-width: 130px;
+  }
+  nav {
+    gap: 0.5rem;
+  }
+
+  /* register-main.css */
+  main .wrapper {
+    width: 55vw;
+  }
+  main .wrapper form {
+    width: 70%;
+  }
+  main .wrapper .google-reg,
+  main .wrapper .login-link {
+    width: 70%;
+  }
+
+  /* quiz.css */
+  main .container {
+    min-height: 560px;
+  }
+  main .container .question-text {
+    font-size: 2.4rem;
+  }
+}
+
+/* ========== Tablets ========== */
+@media (max-width: 992px) {
+  /* style.css */
+  img.logo {
+    max-width: 120px;
+    min-width: 90px;
+  }
+  nav {
+    font-size: 0.9rem;
+  }
+
+  /* register-main.css */
+  main .wrapper {
+    width: 65vw;
+  }
+  main .bg-img {
+    width: 35vw;
+  }
+  main .wrapper form,
+  main .wrapper .google-reg,
+  main .wrapper .login-link {
+    width: 75%;
+  }
+
+  /* gallery.css */
+  .text-center .main-title {
+    font-size: calc(5rem / (62.5 / 100));
+  }
+  .take-quiz button {
+    font-size: 2rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  /* form.css */
+  .title-container {
+    height: auto;
+    padding: 2rem 0;
+  }
+  main form .input-field label {
+    font-size: 1.3rem;
+  }
+  main form .input-field select {
+    font-size: 1.3rem;
+  }
+
+  /* quiz.css */
+  main .container {
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+  main .container ul.answers-list {
+    gap: 1.2rem;
+    height: auto;
+    position: static;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  main .container ul.answers-list li {
+    padding: 2.5rem 1.5rem;
+    width: 100%;
+    font-size: 1.4rem;
+  }
+
+  /* result.css */
+  section.summary-section {
+    width: 70vw;
+  }
+  section.summary-section .leaderboard-container {
+    width: 70vw;
+    height: 55vh;
+    padding: 1.5rem 2.5rem;
+  }
+}
+
+/* ========== Small tablets / large phones ========== */
+@media (max-width: 768px) {
+  /* style.css */
+  header {
+    max-height: 56px;
+    padding: 0.75rem 1rem;
+  }
+  nav {
+    gap: 0.25rem;
+  }
+  .btn-copy {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.9rem;
+  }
+  svg.waves {
+    height: 40vh;
+  }
+
+  /* register-main.css */
+  main .bg-img {
+    width: 50vw;
+  }
+  main .wrapper {
+    width: 50vw;
+  }
+  main .wrapper form,
+  main .wrapper .or,
+  main .wrapper .google-reg,
+  main .wrapper .login-link {
+    width: 80%;
+  }
+
+  /* gallery.css */
+  .text-center .small-title {
+    font-size: calc(1.8rem / (62.5 / 100));
+  }
+  .text-center .main-title {
+    font-size: calc(4.2rem / (62.5 / 100));
+  }
+  .text-center .subtitle {
+    font-size: calc(1rem / (62.5 / 100));
+  }
+  .take-quiz button {
+    font-size: 1.7rem;
+  }
+
+  /* form.css */
+
+  .title-container {
+    height: 100vh;
+  }
+  main form {
+    width: 90vw;
+  }
+  main form .input-field {
+    gap: 0.5rem;
+  }
+  main form .input-field label {
+    width: 45%;
+  }
+  main form .input-field select {
+    width: 55%;
+  }
+  main form button[type="submit"] {
+    font-size: 2rem;
+    padding: 0.9rem 1rem;
+  }
+
+  /* quiz.css */
+
+  /* result.css */
+  .title-container h2 {
+    font-size: 1.5vw !important;
+  }
+  section.summary-section {
+    width: 85vw;
+  }
+  #summary-sect {
+    width: 50vw;
+  }
+  section.summary-section .summary {
+    padding: 1.5rem 2rem;
+  }
+  section.summary-section .btn-container button,
+  section.summary-section a {
+    font-size: 1.5rem;
+    padding: 0.75rem 1rem;
+  }
+  section.summary-section .leaderboard-container {
+    width: 85vw;
+    height: 50vh;
+    padding: 1.25rem 2rem;
+  }
+
+  /* loader.css */
+  .loader-container {
+    width: 260px;
+    height: 360px;
+  }
+  .jellyfish {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+/* ========== Phones ========== */
+@media (max-width: 576px) {
+  /* style.css */
+  img.logo {
+    min-width: 80px;
+    max-width: 100px;
+  }
+  nav a {
+    padding: 0.6rem;
+  }
+  svg.waves {
+    height: 35vh;
+  }
+
+  /* register-main.css */
+  .wrapper img.logo.title {
+    max-width: 30vw !important;
+    min-width: 30vw !important;
+    margin: 0 auto !important;
+  }
+  body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+  main .wrapper {
+    height: max-content !important;
+    width: 100vw !important;
+    position: static !important;
+    overflow: auto !important;
+  }
+  main .wrapper form input {
+    width: 100% !important;
+    font-size: 1.2rem !important;
+    padding: 1.5rem 0.5rem !important;
+  }
+  main .bg-img {
+    display: none;
+  }
+  main .wrapper form,
+  main .wrapper .or,
+  main .wrapper .google-reg,
+  main .wrapper .login-link {
+    width: 90%;
+  }
+
+  /* gallery.css */
+  .take-quiz button {
+    font-size: 1.6rem;
+    padding: 0.6rem 1rem;
+  }
+
+  /* form.css */
+  .title-container {
+    width: 90%;
+    gap: 1.2rem;
+  }
+  main form .input-field {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  main form .input-field label,
+  main form .input-field select {
+    width: 100%;
+  }
+  i.bi.bi-chevron-down {
+    right: 0.5rem;
+  }
+  main form button[type="submit"] {
+    font-size: 1.8rem;
+  }
+
+  /* quiz.css */
+  main .container {
+    max-width: 94vw;
+    padding: 1.25rem;
+  }
+  main .container .question-text {
+    font-size: 2rem;
+  }
+  main .container .category-text {
+    font-size: 1rem;
+  }
+  main .container ul.answers-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  main .container ul.answers-list li {
+    padding: 1.25rem 1rem;
+    font-size: 1.2rem;
+  }
+
+  /* result.css */
+  section.summary-section {
+    width: 92vw;
+    gap: 1.25rem;
+  }
+  section.summary-section .summary {
+    padding: 1.25rem 1.5rem;
+  }
+  section.summary-section .leaderboard-container {
+    width: 92vw;
+    height: 55vh;
+    padding: 1rem 1.25rem;
+  }
+
+  /* loader.css */
+  .loader-container {
+    width: 250px;
+    height: 350px;
+  }
+  .jellyfish {
+    width: 100px;
+    height: 100px;
+  }
+  .jellyfish-head {
+    width: 100px;
+    height: 65px;
+  }
+  .loading-text {
+    font-size: 16px;
+  }
+}
+
+/* ========== Small phones ========== */
+@media (max-width: 425px) {
+  /* style.css */
+  header {
+    padding: 0.6rem 0.8rem;
+  }
+  nav {
+    font-size: 0.85rem;
+  }
+  nav a {
+    padding: 0.5rem 0.6rem;
+  }
+  .dropdown-menu {
+    right: 0.5rem;
+    padding: 0.75rem !important;
+  }
+  .dropdown-menu a {
+    font-size: 1rem;
+  }
+
+  /* register-main.css */
+  main .wrapper form,
+  main .wrapper .or,
+  main .wrapper .google-reg,
+  main .wrapper .login-link {
+    width: 92%;
+  }
+
+  /* gallery.css */
+  .text-center .main-title {
+    font-size: calc(3.6rem / (62.5 / 100));
+  }
+  .take-quiz button {
+    font-size: 1.45rem;
+  }
+
+  /* form.css */
+  main form button[type="submit"] {
+    font-size: 1.6rem;
+  }
+
+  /* quiz.css */
+  main .container .question-text {
+    font-size: 1.8rem;
+  }
+}
+
+/* ========== Very small phones ========== */
+@media (max-width: 375px) {
+  nav {
+    display: none;
+  }
+  .btn-copy {
+    font-size: 0.8rem;
+  }
+  .dropdown-menu a {
+    font-size: 0.95rem;
+  }
+}
