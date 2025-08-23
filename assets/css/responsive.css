@@ -230,8 +230,8 @@
 
   /* register-main.css */
   .wrapper img.logo.title {
-    max-width: 30vw !important;
-    min-width: 30vw !important;
+    max-width: 50vw !important;
+    min-width: 50vw !important;
     margin: 0 auto !important;
   }
   body {
