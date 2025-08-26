@@ -83,7 +83,7 @@ async function handleApiResponse(category, difficulty) {
 
                   setTimeout(() => {
                     nextQuestion();
-                  }, 4000);
+                  }, 2000);
                 } else {
                   // Minus the score by 5
                   score = score > 5 ? score - 5 : 0; // Ensure score doesn't go below 0
@@ -96,7 +96,7 @@ async function handleApiResponse(category, difficulty) {
                   cover.style.display = "block";
                   setTimeout(() => {
                     nextQuestion();
-                  }, 4000);
+                  }, 2000);
                 }
               });
             });

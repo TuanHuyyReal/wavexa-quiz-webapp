@@ -42,7 +42,7 @@ const scoreData = {
   difficulty: difficulty,
 };
 
-localStorage.setItem("scoreData", JSON.stringify(scoreData));
+sessionStorage.setItem("scoreData", JSON.stringify(scoreData));
 
 renderScoreAndInfos(finalScore, category, difficulty);
 const renderLeaderboard = (leaderboard) => {
@@ -93,8 +93,8 @@ const saveUserScore = (email, scoreData) => {
       console.error("Error saving user score:", error);
     });
 
-  // Clear the score data from localStorage after saving
-  localStorage.removeItem("scoreData");
+  // Clear the score data from sessionStorage after saving
+  sessionStorage.removeItem("scoreData");
 };
 
 const saveScoreBtn = document.querySelector("button.save-score");
