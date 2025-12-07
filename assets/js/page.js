@@ -8,5 +8,5 @@ document
   });
 
 const audio = document.querySelector("audio.bg-track");
-audio.volume = 0.4;
+audio.volume = 0.2;
 audio.play();

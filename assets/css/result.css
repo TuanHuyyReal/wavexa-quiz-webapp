@@ -23,8 +23,8 @@ main {
       color: var(--btn-bg);
       padding: 0.1em;
 
-      overflow: hidden;
       border-right: 0.15em solid var(--shadow-prim);
+      overflow: hidden;
       white-space: nowrap;
       width: 0;
     }
