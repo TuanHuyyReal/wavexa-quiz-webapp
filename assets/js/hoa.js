@@ -5,7 +5,7 @@ async function handleApiResponse(category, difficulty) {
     fetch(QUIZ_API_URL)
       .then((response) => response.json())
       .then((question_data) => {
-        const categories = ["Sử dụng và quản lí tiền tiêu vặt"];
+        const categories = ["Bai 5 Chuyen de Vat Ly 10"];
         const categoryIndex = parseInt(category) - 9; // Adjust index based on API categories
         const categoryContext = categories[categoryIndex];
         let score = 0; // Initialize score
